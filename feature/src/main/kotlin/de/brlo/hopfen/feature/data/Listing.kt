@@ -1,16 +1,18 @@
 package de.brlo.hopfen.feature.data
 
-enum class ListingType {
-    HOPS,
-    BARLEY,
-    SPENT_GRAIN
-}
-
 data class Listing(
         val uuid: String = "",
         val name: String,
         val description: String,
-        val listingType: ListingType,
+        val listingType: Type,
         val quantity: Double,
         val quantityUnits: String,
-        val price: Double)
+        val price: Double) {
+
+    enum class Type {
+        HOPS,
+        BARLEY,
+        SPENT_GRAIN
+    }
+
+}
