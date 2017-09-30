@@ -5,6 +5,7 @@ import android.os.Bundle
 import dagger.android.support.DaggerAppCompatActivity
 import de.brlo.hopfen.feature.R
 import de.brlo.hopfen.feature.activity.ActivityCompanion
+import de.brlo.hopfen.feature.databinding.ActivityHomeBinding
 import de.brlo.hopfen.feature.extensions.getDataBinding
 import de.brlo.hopfen.feature.extensions.getViewModel
 import de.brlo.hopfen.feature.home.HomeActivity.Companion.IntentOptions

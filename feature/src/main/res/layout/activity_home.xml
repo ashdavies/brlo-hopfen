@@ -1,31 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/coordinator"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:focusableInTouchMode="true">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-  <LinearLayout
-      style="@style/Theme.Hopfen.Layout.Vertical"
-      android:layout_height="match_parent">
+  <data>
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <variable
+        name="model"
+        type="de.brlo.hopfen.feature.home.HomeViewModel"/>
 
-      <android.support.v7.widget.Toolbar
-          android:id="@+id/toolbar"
+  </data>
+
+  <android.support.design.widget.CoordinatorLayout
+      android:id="@+id/coordinator"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:focusableInTouchMode="true">
+
+    <LinearLayout
+        style="@style/Theme.Hopfen.Layout.Vertical"
+        android:layout_height="match_parent">
+
+      <android.support.design.widget.AppBarLayout
           android:layout_width="match_parent"
-          android:layout_height="?attr/actionBarSize"
-          app:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+          android:layout_height="wrap_content">
 
-    </android.support.design.widget.AppBarLayout>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:theme="@style/ThemeOverlay.AppCompat.ActionBar"/>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+      </android.support.design.widget.AppBarLayout>
 
-  </LinearLayout>
-</android.support.design.widget.CoordinatorLayout>
+      <android.support.v4.view.ViewPager
+          android:id="@+id/pager"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"/>
+
+    </LinearLayout>
+  </android.support.design.widget.CoordinatorLayout>
+</layout>
