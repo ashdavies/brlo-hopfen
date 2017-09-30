@@ -15,6 +15,7 @@ internal class ListingsAdapter @Inject constructor(inflater: LayoutInflater) : A
   private fun inflate(parent: ViewGroup) = inflater.inflate(R.layout.item_listing, parent, false)
 
   override fun notifyDataSetChanged(old: MutableList<Listing>, new: MutableList<Listing>) {
-    DiffUtil.calculateDiff(ListingsDiffUtilCallback(old, new)).dispatchUpdatesTo(this)
+    notifyDataSetChanged()
+//    DiffUtil.calculateDiff(ListingsDiffUtilCallback(old, new)).dispatchUpdatesTo(this)
   }
 }
