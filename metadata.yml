@@ -1,0 +1,14 @@
+service: "is24-hopfen-android"
+usecase: "mobile-platform-engagement"
+segment: "finance"
+vertical: "brlo-media"
+owner: "live-or-leave@immobilienbrlo24.de"
+team: "knoff-hoff"
+public_urls:
+  - https://github.com/Autobrlo24/is24-hopfen-android/blob/master/README.md
+criticality: "bronze"
+confidentiality: "public"
+integrity: "non-critical"
+availability: "non-critical"
+data_protection_relevant: no
+repository_url: "https://github.com/Autobrlo24/is24-hopfen-android"

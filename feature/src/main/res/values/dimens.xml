@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!-- System Metrics -->
+  <item name="match_parent" format="dimension" type="dimen">-1px</item>
+  <item name="wrap_content" format="dimension" type="dimen">-2px</item>
+
+  <!-- Default Metrics -->
+  <dimen name="default_margin">16dp</dimen>
+  <dimen name="default_padding">12dp</dimen>
+  <dimen name="default_elevation">1dp</dimen>
+
+  <dimen name="default_half_margin">8dp</dimen>
+  <dimen name="default_half_padding">6dp</dimen>
+
+  <dimen name="minus_margin">-16dp</dimen>
+  <dimen name="minus_padding">-12dp</dimen>
+
+  <dimen name="default_margin_double">32dp</dimen>
+  <dimen name="default_padding_double">24dp</dimen>
+  <dimen name="default_elevation_double">4dp</dimen>
+
+  <!-- Action Metrics -->
+  <dimen name="action_size">66dp</dimen>
+  <dimen name="action_size_large">88dp</dimen>
+  <dimen name="action_elevation">1dp</dimen>
+  <dimen name="action_padding">32dp</dimen>
+  <dimen name="action_margin">24dp</dimen>
+
+  <!-- Text Metrics -->
+  <dimen name="primary_text">20sp</dimen>
+  <dimen name="secondary_text">12sp</dimen>
+  <dimen name="text_spacing">4sp</dimen>
+
+</resources>
