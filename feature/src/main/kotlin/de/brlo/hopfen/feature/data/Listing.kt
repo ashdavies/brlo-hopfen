@@ -7,10 +7,10 @@ enum class ListingType {
 }
 
 data class Listing(
-        var uuid: String = "",
-        var name: String,
-        var description: String,
-        var listingType: ListingType,
-        var quantity: Double,
-        var quantityUnits: String,
-        var price: Double)
+        val uuid: String = "",
+        val name: String,
+        val description: String,
+        val listingType: ListingType,
+        val quantity: Double,
+        val quantityUnits: String,
+        val price: Double)

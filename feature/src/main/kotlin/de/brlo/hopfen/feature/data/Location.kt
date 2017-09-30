@@ -1,6 +1,6 @@
 package de.brlo.hopfen.feature.data
 
 data class Location(
-        var uuid: String = "",
+        val uuid: String = "",
         val account: String,
-        var address: String)
+        val address: String)

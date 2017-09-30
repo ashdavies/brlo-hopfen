@@ -1,6 +1,6 @@
 package de.brlo.hopfen.feature.data
 
 data class Account(
-        var uuid: String = "",
-        var token: String,
+        val uuid: String = "",
+        val token: String,
         val brewery: Boolean)
