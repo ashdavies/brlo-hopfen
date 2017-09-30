@@ -75,7 +75,7 @@
   <style name="Theme.Hopfen.TextAppearance.Button" parent="Theme.Hopfen.TextAppearance.Standard">
     <item name="android:fontFamily">@font/product_sans_bold</item>
 
-    <item name="android:textColor">@color/primary_text</item>
+    <item name="android:textColor">@color/primary</item>
     <item name="android:textSize">@dimen/button_text</item>
   </style>
 

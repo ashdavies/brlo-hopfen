@@ -15,16 +15,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textAppearance="@style/Theme.Hopfen.TextAppearance.Bold"
+        android:text="@{listing.quantity + listing.quantityUnits}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/locationTextView"
         tools:text="30kg" />
 
     <TextView
-        android:id="@+id/nameTextView"
+        android:id="@+id/hopStyleTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAppearance="@style/Theme.Hopfen.TextAppearance.Headline"
+        android:text="@{listing.hop.name}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -36,10 +38,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:textAppearance="@style/Theme.Hopfen.TextAppearance.Bold"
+        android:text="@{listing.price}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/locationTextView"
-        tools:text="$45.00" />
+        tools:text="\u20AC45,00" />
 
     <TextView
         android:id="@+id/locationTextView"
@@ -47,9 +50,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:textAppearance="@style/Theme.Hopfen.TextAppearance.Standard"
+        android:text="@{listing.location.name}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameTextView"
-        tools:text="Stone Brewing Berlin" />
+        app:layout_constraintTop_toBottomOf="@+id/hopStyleTextView"
+        tools:text="BR\u0141O Brewing Berlin" />
 </android.support.constraint.ConstraintLayout>
 

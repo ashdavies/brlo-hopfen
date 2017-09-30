@@ -11,4 +11,15 @@
   <string name="error_profile_failed">Failed to load profile</string>
 
   <string name="add_to_cart">Add To Cart</string>
+
+  <string name="edit">Edit</string>
+  <string name="delete">Delete</string>
+  <string name="quantity">Quantity</string>
+  <string name="price">Price (\u20AC)</string>
+  <string name="hop_style">Hop Style</string>
+
+  <string-array name="quantity_units">
+    <item>kg</item>
+    <item>g</item>
+  </string-array>
 </resources>
