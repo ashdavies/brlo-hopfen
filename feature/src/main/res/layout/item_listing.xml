@@ -6,8 +6,8 @@
   <data>
 
     <variable
-        name="model"
-        type="de.brlo.hopfen.feature.home.ListingsViewHolder.ListingViewModel"/>
+        name="listing"
+        type="de.brlo.hopfen.feature.data.Listing"/>
 
   </data>
 
@@ -17,10 +17,10 @@
       android:layout_height="wrap_content"
       android:layout_margin="16dp"
       android:background="@color/cardview_light_background"
-      android:elevation="@dimen/cardview_default_elevation"
       android:orientation="vertical"
       app:cardCornerRadius="2dp"
       app:cardElevation="2dp"
+      app:elevation="@dimen/cardview_default_elevation"
       tools:layout_editor_absoluteX="0dp"
       tools:layout_editor_absoluteY="25dp">
 
