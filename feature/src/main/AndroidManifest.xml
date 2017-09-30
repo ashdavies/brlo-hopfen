@@ -11,9 +11,9 @@
       android:icon="@mipmap/ic_launcher"
       android:label="@string/application"
       android:supportsRtl="false"
-      android:theme="@style/Theme.hopfen">
+      android:theme="@style/Theme.Hopfen">
 
-    <activity android:name=".login.LoginActivity"
+    <activity android:name=".home.HomeActivity"
         android:screenOrientation="portrait">
 
       <intent-filter>
@@ -22,13 +22,6 @@
       </intent-filter>
 
     </activity>
-
-    <activity android:name=".home.HomeActivity"
-        android:screenOrientation="portrait"/>
-
-    <activity android:name=".settings.SettingsActivity"
-        android:screenOrientation="portrait"
-        android:label="@string/label_settings"/>
 
   </application>
 

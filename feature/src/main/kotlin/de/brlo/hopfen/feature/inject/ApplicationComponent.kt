@@ -5,10 +5,9 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
-import de.brlo.hopfen.feature.hopfen
+import de.brlo.hopfen.feature.Hopfen
 import de.brlo.hopfen.feature.firebase.FirebaseModule
 import de.brlo.hopfen.feature.network.NetworkModule
-import javax.inject.Singleton
 
 @ApplicationScope
 @Component(modules = arrayOf(
@@ -19,7 +18,7 @@ import javax.inject.Singleton
     NetworkModule::class,
     ViewModelModule::class
 ))
-internal interface ApplicationComponent : AndroidInjector<hopfen> {
+internal interface ApplicationComponent : AndroidInjector<Hopfen> {
 
   @Component.Builder
   interface Builder {

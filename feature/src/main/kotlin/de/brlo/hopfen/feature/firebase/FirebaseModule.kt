@@ -5,7 +5,6 @@ import dagger.Module
 import de.brlo.hopfen.feature.Configuration
 import de.brlo.hopfen.feature.Reporting
 import de.brlo.hopfen.feature.inject.ApplicationScope
-import javax.inject.Singleton
 
 @Module(includes = arrayOf(FirebaseConfigurationModule::class))
 internal interface FirebaseModule {
