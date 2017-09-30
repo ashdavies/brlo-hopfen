@@ -72,6 +72,13 @@
 
   <style name="Theme.Hopfen.TextAppearance.Quote" parent="Theme.Hopfen.TextAppearance.Standard"/>
 
+  <style name="Theme.Hopfen.TextAppearance.Button" parent="Theme.Hopfen.TextAppearance.Standard">
+    <item name="android:fontFamily">@font/product_sans_bold</item>
+
+    <item name="android:textColor">@color/primary_text</item>
+    <item name="android:textSize">@dimen/button_text</item>
+  </style>
+
   <!-- Dialog Themes -->
   <style name="Theme.Dialog" parent="Theme.AppCompat.Light.Dialog">
     <item name="android:windowNoTitle">true</item>
