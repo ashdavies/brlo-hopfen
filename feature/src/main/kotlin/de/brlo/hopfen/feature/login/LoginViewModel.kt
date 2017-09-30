@@ -21,7 +21,7 @@ internal class LoginViewModel @Inject constructor(private val navigation: LoginN
 
   @SuppressLint("CheckResult")
   fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-    if (navigation.isFromGoogleSignIn(requestCode)) {
+    if (navigation.isFromGoogleSignIn(requestCode) && data != null) {
       GoogleSignInResultSingle.from(data)
           .flatMap { RxFirebaseAuth.getInstance().signInWithCredential(GoogleAuthProvider.getCredential(it.idToken, null)); }
           .subscribe(
