@@ -12,6 +12,8 @@
 
   <string name="add_to_cart">Add To Cart</string>
 
+  <string name="new_listing_dialog_title">New Listing</string>
+  <string name="edit_listing_dialog_title">New Listing</string>
   <string name="edit">Edit</string>
   <string name="delete">Delete</string>
   <string name="quantity">Quantity</string>

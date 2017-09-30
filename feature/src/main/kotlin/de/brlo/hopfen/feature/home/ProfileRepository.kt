@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 internal class ProfileRepository @Inject constructor() : Repository<String, Profile> {
 
-  override fun get(key: String): Single<out Profile> = if (BuildConfig.DEBUG) Single.just(Profile(BRLO_HEADER, BRLO_IMPRESSUM)) else Single.never()
+  override fun get(key: String): Single<out Profile> = if (BuildConfig.DEBUG) Single.just(Profile(BRLO_UUID, BRLO_HEADER, BRLO_IMPRESSUM, BRLO_LOCATIONS)) else Single.never()
 
   override fun getAll(): Observable<out Profile> = Observable.error(UnsupportedOperationException())
 
@@ -18,7 +18,9 @@ internal class ProfileRepository @Inject constructor() : Repository<String, Prof
 
   companion object {
 
+    private const val BRLO_UUID = "BRLO_UUID"
     private const val BRLO_HEADER = "http://supr.com/brlo/files/brlo_home_porter.jpg"
     private const val BRLO_IMPRESSUM = "Braukunst Berlin GmbH"
+    private val BRLO_LOCATIONS = Array(1, { _ -> Profile.Location("BRLO_LOCATION_UUID", "BR\u20ACO Brwhouse", "Schöneberger Str. 16, 10963 Berlin, Germany") })
   }
 }
