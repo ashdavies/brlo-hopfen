@@ -40,6 +40,11 @@ class LoginActivity : DaggerAppCompatActivity() {
     binding.model?.onLoginResult(data)
   }
 
+  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    binding.model?.onActivityResult(requestCode, resultCode, data)
+    super.onActivityResult(requestCode, resultCode, data)
+  }
+
   companion object : ActivityCompanion<IntentOptions>(IntentOptions, LoginActivity::class) {
 
     object IntentOptions

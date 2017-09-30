@@ -104,6 +104,7 @@ ext.libraries = [
 
     google  : [
         play: [
+            auth    : "com.google.android.gms:play-services-auth:$versions.google.play.services",
             location: "com.google.android.gms:play-services-location:$versions.google.play.services",
             places  : "com.google.android.gms:play-services-places:$versions.google.play.services"
         ]

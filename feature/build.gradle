@@ -23,8 +23,6 @@ android {
 
   buildTypes {
     debug {
-      applicationIdSuffix '.debug'
-
       minifyEnabled false
       multiDexEnabled true
     }
@@ -101,6 +99,7 @@ dependencies {
   implementation libraries.okhttp.core
   implementation libraries.okhttp.logging
 
+  implementation libraries.google.play.auth
   implementation libraries.google.play.location
   implementation libraries.google.play.places
 

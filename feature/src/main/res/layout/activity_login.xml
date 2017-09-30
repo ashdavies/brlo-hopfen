@@ -30,15 +30,23 @@
           android:padding="@dimen/default_padding"
           android:text="@string/login_with_untapped"/>
 
-      <ImageButton
+      <Button
           android:background="@color/untappd_yellow"
           android:contentDescription="@string/login_with_untapped"
           android:layout_margin="@dimen/default_margin"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:padding="@dimen/default_padding"
-          android:src="@drawable/ic_untappd"
+          android:drawableStart="@drawable/ic_untappd"
+          android:drawablePadding="@dimen/default_padding"
+          android:text="@string/sign_in"
+          android:textAllCaps="false"
           android:onClick="@{model::onLoginClick}"/>
+
+      <com.google.android.gms.common.SignInButton
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:onClick="@{model::onGoogleLoginClick}"/>
 
     </LinearLayout>
   </android.support.design.widget.CoordinatorLayout>

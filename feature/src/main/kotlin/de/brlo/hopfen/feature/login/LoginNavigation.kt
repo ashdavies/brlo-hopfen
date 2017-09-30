@@ -3,13 +3,19 @@ package de.brlo.hopfen.feature.login
 import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
+import android.support.v4.app.ActivityCompat.startActivityForResult
 import com.google.firebase.auth.FirebaseAuth
 import de.brlo.hopfen.feature.R
 import de.brlo.hopfen.feature.home.HomeActivity
 import de.brlo.hopfen.feature.home.Navigator
+import io.ashdavies.rx.rxfirebase.RxFirebaseAuth
 import javax.inject.Inject
 
-internal class LoginNavigation @Inject constructor(private val navigator: Navigator, private val repository: CredentialsRepository) {
+internal class LoginNavigation @Inject constructor(
+    private val navigator: Navigator,
+    private val repository: CredentialsRepository,
+    private val client: GoogleSignInApi
+) {
 
   fun navigateToUntappdLogin() {
     navigator.navigate {
@@ -25,21 +31,32 @@ internal class LoginNavigation @Inject constructor(private val navigator: Naviga
     }
   }
 
+  fun navigateToGoogleLogin() = navigator.navigate { startActivityForResult(it, client.signInIntent, REQUEST_CODE_LOGIN); }
+
+  fun isAlreadySignedIn() {
+    client.onConnectionEvent()
+        .filter { it == GoogleApiProcessor.Event.CONNECTED }
+        .doOnNext { RxFirebaseAuth.getInstance().signOut() }
+        .subscribe(
+            { client.signOut() },
+            { showFailureDialog() }
+        )
+  }
+
+  fun isFromGoogleSignIn(requestCode: Int) = requestCode == REQUEST_CODE_LOGIN
+
   fun onLoginResult(data: Uri) {
     if (data.scheme == HOPFEN_SCHEME && data.path == HOPFEN_PATH) {
       repository.accessToken = data.getQueryParameter(UNTAPPD_ACCESS_TOKEN)
       FirebaseAuth.getInstance().signInWithCustomToken(repository.accessToken)
           .addOnSuccessListener { navigateToHomeScreen() }
           .addOnFailureListener { showFailureDialog() }
-
     }
   }
 
-  private fun navigateToHomeScreen() {
-    navigator.navigate { HomeActivity.start(it) {} }
-  }
+  fun navigateToHomeScreen() = navigator.navigate { HomeActivity.start(it) {} }
 
-  private fun showFailureDialog() {
+  fun showFailureDialog() {
     navigator.navigate {
       AlertDialog.Builder(it)
           .setTitle(R.string.error_dialog_title)
@@ -49,6 +66,8 @@ internal class LoginNavigation @Inject constructor(private val navigator: Naviga
   }
 
   companion object {
+
+    private const val REQUEST_CODE_LOGIN = 0x91
 
     private const val UNTAPPD_AUTHENTICATE = "https://untappd.com/oauth/authenticate/"
     private const val UNTAPPD_ACCESS_TOKEN = "access_token"
