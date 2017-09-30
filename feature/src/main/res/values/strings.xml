@@ -8,4 +8,6 @@
 
   <string name="error_login_failed">Login failed, please try again</string>
   <string name="error_listings_failed">Failed to fetch listings</string>
+
+  <string name="add_to_cart">Add To Cart</string>
 </resources>
