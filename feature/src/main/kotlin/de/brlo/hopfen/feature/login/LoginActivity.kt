@@ -13,6 +13,7 @@ import de.brlo.hopfen.feature.extensions.getDataBinding
 import de.brlo.hopfen.feature.extensions.getViewModel
 import de.brlo.hopfen.feature.home.HomeActivity
 import de.brlo.hopfen.feature.login.LoginActivity.Companion.IntentOptions
+import kotlinx.android.synthetic.main.activity_login.googleSignIn
 import javax.inject.Inject
 
 class LoginActivity : DaggerAppCompatActivity() {

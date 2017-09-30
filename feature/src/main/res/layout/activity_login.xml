@@ -44,8 +44,10 @@
           android:onClick="@{model::onLoginClick}"/>
 
       <com.google.android.gms.common.SignInButton
+          android:id="@+id/googleSignIn"
           android:layout_width="wrap_content"
-          android:layout_height="wrap_content"/>
+          android:layout_height="wrap_content"
+          android:onClick="@{() -> model.onGoogleLoginClick()"/>
 
     </LinearLayout>
   </android.support.design.widget.CoordinatorLayout>
