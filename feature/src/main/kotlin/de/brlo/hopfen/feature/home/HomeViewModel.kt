@@ -6,17 +6,15 @@ import de.brlo.hopfen.feature.android.ViewModel
 import de.brlo.hopfen.feature.data.Listing
 import de.brlo.hopfen.feature.data.Profile
 import de.brlo.hopfen.feature.extensions.plusAssign
-import de.brlo.hopfen.feature.login.CredentialsRepository
 import de.brlo.hopfen.feature.network.SchedulingStrategy
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
 internal class HomeViewModel @Inject constructor(
-    listings: ListingsRepository,
-    profile: ProfileRepository,
-    private val navigation: HomeNavigation,
-    credentials: CredentialsRepository,
-    strategy: SchedulingStrategy
+        listings: ListingsRepository,
+        profiles: ProfileRepository,
+        private val navigation: HomeNavigation,
+        strategy: SchedulingStrategy
 ) : ViewModel<MutableList<Listing>>(State.idle(mutableListOf())) {
 
   private val disposables = CompositeDisposable()
@@ -35,7 +33,7 @@ internal class HomeViewModel @Inject constructor(
             }
         )
 
-    disposables += profile.get(credentials.userName)
+    disposables += profiles.get("9b2f0ee7-9d76-4918-8cf9-d77317a88725")
         .subscribe(
             { header.set(State.idle(it)) },
             {
