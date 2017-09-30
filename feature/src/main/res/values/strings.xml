@@ -1,6 +1,8 @@
 <resources>
   <string name="application">Hopfen</string>
 
+  <string name="login_with_untapped">Login using your\nUntappd account</string>
+
   <string name="error_dialog_title">Error</string>
   <string name="error_positive_button">OK</string>
 </resources>

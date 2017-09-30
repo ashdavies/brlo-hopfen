@@ -3,15 +3,15 @@
 
   <uses-permission android:name="android.permission.INTERNET"/>
 
-  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
-  <application android:name="de.brlo.hopfen.feature"
+  <application android:name="de.brlo.hopfen.feature.Hopfen"
       android:allowBackup="false"
       android:icon="@mipmap/ic_launcher"
       android:label="@string/application"
       android:supportsRtl="false"
       android:theme="@style/Theme.Hopfen">
+
+    <activity android:name=".login.LoginActivity"
+        android:screenOrientation="portrait"/>
 
     <activity android:name=".home.HomeActivity"
         android:screenOrientation="portrait">
@@ -19,6 +19,13 @@
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+
+        <data android:host="login"
+            android:scheme="brlo.hopfen"/>
       </intent-filter>
 
     </activity>

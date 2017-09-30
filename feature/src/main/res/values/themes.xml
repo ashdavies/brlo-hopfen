@@ -44,7 +44,7 @@
   <!-- TextAppearance Themes -->
   <style name="Theme.Hopfen.TextAppearance"/>
 
-  <style name="Theme.Hopfen.TextAppearance.Standard" parent="TextAppearance.AppCompat.Body1">
+  <style name="Theme.Hopfen.TextAppearance.Standard" parent="TextAppearance.AppCompat.Medium">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">wrap_content</item>
 
@@ -61,6 +61,8 @@
     <item name="android:layout_height">wrap_content</item>
     <item name="android:layout_margin">@dimen/default_margin</item>
     <item name="android:gravity">center_horizontal</item>
+
+    <item name="android:fontFamily">@font/product_sans_bold</item>
 
     <item name="android:textColor">@color/primary_text</item>
     <item name="android:textSize">@dimen/primary_text</item>

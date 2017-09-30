@@ -1,4 +1,4 @@
-package de.brlo.hopfen.feature.home
+package de.brlo.hopfen.feature.login
 
 import android.arch.lifecycle.ViewModel
 import dagger.Binds
@@ -7,10 +7,10 @@ import dagger.multibindings.IntoMap
 import de.brlo.hopfen.feature.inject.ViewModelKey
 
 @Module
-internal interface HomeViewModelModule {
+internal interface LoginViewModelModule {
 
   @Binds
   @IntoMap
-  @ViewModelKey(HomeViewModel::class)
-  fun model(model: HomeViewModel): ViewModel
+  @ViewModelKey(LoginViewModel::class)
+  fun model(model: LoginViewModel): ViewModel
 }

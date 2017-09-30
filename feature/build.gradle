@@ -45,6 +45,9 @@ android {
   defaultConfig {
     applicationId 'de.brlo.hopfen'
 
+    buildConfigField 'String', 'UNTAPPD_CLIENT_ID', getRuntimeProperty('untappd_client_id')
+    buildConfigField 'String', 'UNTAPPD_CLIENT_SECRET', getRuntimeProperty('untappd_client_secret')
+
     minSdkVersion configuration.minSdkVersion
     targetSdkVersion configuration.targetSdkVersion
 
