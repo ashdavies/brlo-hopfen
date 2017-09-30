@@ -4,6 +4,8 @@ import android.app.Application
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import android.view.LayoutInflater
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import de.brlo.hopfen.feature.network.SchedulingStrategy
@@ -21,4 +23,7 @@ internal class ApplicationModule {
 
   @Provides
   fun strategy() = SchedulingStrategy(Schedulers.io(), AndroidSchedulers.mainThread())
+
+  @Provides
+  fun gson(): Gson = GsonBuilder().create()
 }

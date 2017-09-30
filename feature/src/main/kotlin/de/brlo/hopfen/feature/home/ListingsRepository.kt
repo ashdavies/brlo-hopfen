@@ -2,14 +2,14 @@ package de.brlo.hopfen.feature.home
 
 import de.brlo.hopfen.feature.data.Listing
 import de.brlo.hopfen.feature.repository.Repository
+import io.ashdavies.rx.rxfirebase.ChildEvent
 import io.ashdavies.rx.rxfirebase.RxFirebaseDatabase
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
-import io.ashdavies.rx.rxfirebase.ChildEvent
 import javax.inject.Inject
 
-internal class ListingsRepository @Inject constructor() : Repository<String, Listing> {
+internal class ListingsRepository @Inject constructor(private val deserialiser: GsonDeserialiser<Listing>) : Repository<String, Listing> {
 
   override fun get(key: String): Single<Listing> {
     return getInstance(CHILD_LISTINGS, key)
@@ -22,7 +22,7 @@ internal class ListingsRepository @Inject constructor() : Repository<String, Lis
         .limitToLast(QUERY_LIMIT)
         .orderByChild(QUERY_ORDER)
         .onChildEvent(ChildEvent.Type.CHILD_ADDED)
-        .map { it.snapshot().getValue<Listing>(Listing::class.java)!! }
+        .map { deserialiser.deserialise(it.snapshot(), Listing::class.java) }
         .toObservable()
   }
 
@@ -36,7 +36,7 @@ internal class ListingsRepository @Inject constructor() : Repository<String, Lis
 
   companion object {
 
-    private const val CHILD_LISTINGS = "listings"
+    private const val CHILD_LISTINGS = "listing"
 
     private const val QUERY_ORDER = "created"
     private const val QUERY_LIMIT = 100
