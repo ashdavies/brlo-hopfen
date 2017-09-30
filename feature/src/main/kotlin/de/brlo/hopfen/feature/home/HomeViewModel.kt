@@ -7,7 +7,7 @@ import de.brlo.hopfen.feature.network.SchedulingStrategy
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
-internal class HomeViewModel @Inject constructor(repository: ListingsRepository, navigation: HomeNavigation) : ViewModel<MutableList<Listing>>() {
+internal class HomeViewModel @Inject constructor(repository: ListingsRepository, navigation: HomeNavigation) : ViewModel<MutableList<Listing>>(State.idle(mutableListOf())) {
 
   private val disposables = CompositeDisposable()
 
