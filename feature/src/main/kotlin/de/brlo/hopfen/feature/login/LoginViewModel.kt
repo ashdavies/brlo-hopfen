@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 internal class LoginViewModel @Inject constructor(private val navigation: LoginNavigation) : ViewModel<Any>() {
 
-  init { navigation.isAlreadySignedIn()}
+  init { navigation.isAlreadySignedIn() }
 
   fun onLoginClick(view: View) = navigation.navigateToUntappdLogin()
 

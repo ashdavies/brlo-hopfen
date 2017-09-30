@@ -31,7 +31,7 @@ internal class LoginNavigation @Inject constructor(
     }
   }
 
-  fun navigateToGoogleLogin() = navigator.navigate { startActivityForResult(it, client.signInIntent, REQUEST_CODE_LOGIN); }
+  fun navigateToGoogleLogin() = navigator.navigate { it.startActivityForResult(client.signInIntent, REQUEST_CODE_LOGIN) }
 
   fun isAlreadySignedIn() {
     client.onConnectionEvent()
