@@ -121,6 +121,7 @@ dependencies {
   implementation libraries.firebase.database
 
   implementation libraries.square.picasso
+  implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 }
 
 apply plugin: 'com.google.gms.google-services'
