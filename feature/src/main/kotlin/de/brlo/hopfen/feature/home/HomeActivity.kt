@@ -19,6 +19,9 @@ import de.brlo.hopfen.feature.extensions.getFont
 import de.brlo.hopfen.feature.extensions.getViewModel
 import de.brlo.hopfen.feature.home.HomeActivity.Companion.IntentOptions
 import de.brlo.hopfen.feature.login.LoginActivity
+import de.brlo.hopfen.feature.network.SchedulingStrategy
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.internal.operators.observable.ObservableReplay.observeOn
 import kotlinx.android.synthetic.main.activity_home.collapsing
 import kotlinx.android.synthetic.main.activity_home.recycler
 import kotlinx.android.synthetic.main.activity_home.toolbar
@@ -29,6 +32,7 @@ class HomeActivity : DaggerAppCompatActivity() {
   private lateinit var binding: ActivityHomeBinding
 
   @Inject internal lateinit var factory: ViewModelProvider.Factory
+  @Inject internal lateinit var strategy: SchedulingStrategy
   @Inject internal lateinit var adapter: ListingsAdapter
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +48,9 @@ class HomeActivity : DaggerAppCompatActivity() {
 
     recycler.adapter = adapter
     recycler.layoutManager = LinearLayoutManager(this)
-    binding.model?.state?.observe()?.subscribe { adapter.items = it.data }
+    binding.model?.state?.observe()
+        ?.compose(strategy.observable())
+        ?.subscribe { adapter.items = it.data }
   }
 
   private fun setCollapsingToolbarFont() {
