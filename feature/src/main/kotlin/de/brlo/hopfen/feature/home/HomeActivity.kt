@@ -29,13 +29,13 @@ class HomeActivity : DaggerAppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setSupportActionBar(toolbar)
 
     if (!BuildConfig.DEBUG && FirebaseAuth.getInstance().isNotLoggedIn()) onBackPressed()
 
     binding = getDataBinding(R.layout.activity_home)
     binding.model = getViewModel(factory)
 
+    setSupportActionBar(toolbar)
     setCollapsingToolbarFont()
   }
 
