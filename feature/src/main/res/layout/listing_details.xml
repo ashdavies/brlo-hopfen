@@ -42,7 +42,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/locationTextView"
-        tools:text="$45.00" />
+        tools:text="\u20AC45,00" />
 
     <TextView
         android:id="@+id/locationTextView"
@@ -54,6 +54,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView"
-        tools:text="Stone Brewing Berlin" />
+        tools:text="BR\u0141O Brewing Berlin" />
 </android.support.constraint.ConstraintLayout>
 
