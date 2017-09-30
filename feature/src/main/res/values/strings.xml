@@ -17,6 +17,8 @@
   <string name="quantity">Quantity</string>
   <string name="price">Price (\u20AC)</string>
   <string name="hop_style">Hop Style</string>
+  <string name="add_listing">Add Listing</string>
+  <string name="cancel">Cancel</string>
 
   <string-array name="quantity_units">
     <item>kg</item>
