@@ -24,7 +24,7 @@ internal class ApplicationModule {
 
   @Provides
   fun resource(application: Application): Resources = application.resources
-  
+
   @Provides
   fun strategy() = SchedulingStrategy(Schedulers.io(), AndroidSchedulers.mainThread())
 
