@@ -2,6 +2,7 @@ package de.brlo.hopfen.feature.inject
 
 import android.app.Application
 import android.content.SharedPreferences
+import android.content.res.Resources
 import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import com.google.gson.Gson
@@ -21,6 +22,9 @@ internal class ApplicationModule {
   @Provides
   fun preferences(application: Application): SharedPreferences = PreferenceManager.getDefaultSharedPreferences(application)
 
+  @Provides
+  fun resource(application: Application): Resources = application.resources
+  
   @Provides
   fun strategy() = SchedulingStrategy(Schedulers.io(), AndroidSchedulers.mainThread())
 
