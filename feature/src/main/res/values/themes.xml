@@ -3,20 +3,16 @@
 
   <!-- Application Themes -->
   <style name="Theme.Hopfen" parent="Theme.AppCompat.DayNight.NoActionBar">
-    <item name="colorPrimary">@color/colorPrimary</item>
-    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-    <item name="colorAccent">@color/colorAccent</item>
-
-    <item name="colorControlNormal">@color/light_grey</item>
-    <item name="colorControlActivated">@color/colorAccent</item>
-    <item name="colorControlHighlight">@color/dark_white</item>
+    <item name="colorPrimary">@color/primary</item>
+    <item name="colorPrimaryDark">@color/primary_dark</item>
+    <item name="colorAccent">@color/accent</item>
 
     <item name="android:colorBackground">@android:color/white</item>
-    <item name="android:textColorPrimary">@color/dark_grey</item>
-    <item name="android:textColorHint">@color/light_grey</item>
-    <item name="android:textColorLink">@color/light_blue</item>
+    <item name="android:textColorPrimary">@color/primary_text</item>
+    <item name="android:textColorHint">@color/secondary_text</item>
+    <item name="android:textColorLink">@color/accent</item>
 
-    <item name="android:windowBackground">@color/dark_white</item>
+    <item name="android:windowBackground">@color/divider</item>
   </style>
 
   <!-- Container Themes -->
