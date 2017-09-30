@@ -1,6 +1,7 @@
 package de.brlo.hopfen.feature.login
 
 import android.arch.lifecycle.ViewModelProvider
+import android.content.Intent
 import android.os.Bundle
 import dagger.android.support.DaggerAppCompatActivity
 import de.brlo.hopfen.feature.R
@@ -22,6 +23,15 @@ class LoginActivity : DaggerAppCompatActivity() {
 
     binding = getDataBinding(R.layout.activity_login)
     binding.model = getViewModel(factory)
+
+    onNewIntent(intent)
+  }
+
+  override fun onNewIntent(intent: Intent) {
+    super.onNewIntent(intent)
+
+    val data = intent.data ?: return
+    binding.model?.onLoginResult(data)
   }
 
   companion object : ActivityCompanion<IntentOptions>(IntentOptions, LoginActivity::class) {

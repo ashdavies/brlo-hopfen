@@ -12,6 +12,7 @@ internal class LoginNavigation @Inject constructor(private val navigator: Naviga
       val uri = Uri.parse(UNTAPPD_AUTHENTICATE).buildUpon()
           .appendQueryParameter("client_id", repository.clientId)
           .appendQueryParameter("client_secret", repository.clientSecret)
+          .appendQueryParameter("redirect_url", "$HOPFEN_SCHEME://$HOPFEN_PATH")
           .build()
 
       val intent = Intent.parseUri(uri.toString(), Intent.URI_INTENT_SCHEME)
@@ -20,9 +21,18 @@ internal class LoginNavigation @Inject constructor(private val navigator: Naviga
     }
   }
 
+  fun onLoginResult(data: Uri) {
+    if (data.scheme == HOPFEN_SCHEME && data.path == HOPFEN_PATH) {
+      repository.accessToken = data.getQueryParameter(UNTAPPD_ACCESS_TOKEN)
+    }
+  }
+
   companion object {
 
-    // https://untappd.com/oauth/authenticate/?client_id=CLIENTID&response_type=token&redirect_url=REDIRECT_URL
     private const val UNTAPPD_AUTHENTICATE = "https://untappd.com/oauth/authenticate/"
+    private const val UNTAPPD_ACCESS_TOKEN = "access_token"
+
+    private const val HOPFEN_SCHEME = "brlo.hopfen"
+    private const val HOPFEN_PATH = "login"
   }
 }
