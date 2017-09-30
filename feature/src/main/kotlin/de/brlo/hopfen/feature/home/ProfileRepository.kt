@@ -1,5 +1,6 @@
 package de.brlo.hopfen.feature.home
 
+import de.brlo.hopfen.feature.BuildConfig
 import de.brlo.hopfen.feature.data.Profile
 import de.brlo.hopfen.feature.repository.Repository
 import io.reactivex.Completable
@@ -9,7 +10,7 @@ import javax.inject.Inject
 
 internal class ProfileRepository @Inject constructor() : Repository<String, Profile> {
 
-  override fun get(key: String): Single<out Profile> = Single.just(Profile(BRLO_HEADER, BRLO_IMPRESSUM))
+  override fun get(key: String): Single<out Profile> = if (BuildConfig.DEBUG) Single.just(Profile(BRLO_HEADER, BRLO_IMPRESSUM)) else Single.never()
 
   override fun getAll(): Observable<out Profile> = Observable.error(UnsupportedOperationException())
 
