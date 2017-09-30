@@ -23,4 +23,15 @@ internal class HomeNavigation @Inject constructor(private val navigator: Navigat
           .show()
     }
   }
+
+  fun showAddListingDialog() {
+    navigator.navigate {
+      AlertDialog.Builder(it)
+              .setView(it.layoutInflater.inflate(R.layout.dialog_edit_listing, null))
+              .setPositiveButton(R.string.add_listing, null)
+              .setNegativeButton(R.string.cancel, null)
+              .setTitle(R.string.new_listing_dialog_title)
+              .show()
+    }
+  }
 }

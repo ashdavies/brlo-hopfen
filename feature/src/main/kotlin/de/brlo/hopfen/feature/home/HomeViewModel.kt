@@ -1,6 +1,7 @@
 package de.brlo.hopfen.feature.home
 
 import android.databinding.ObservableField
+import android.view.View
 import de.brlo.hopfen.feature.android.ViewModel
 import de.brlo.hopfen.feature.data.Listing
 import de.brlo.hopfen.feature.data.Profile
@@ -13,7 +14,7 @@ import javax.inject.Inject
 internal class HomeViewModel @Inject constructor(
     listings: ListingsRepository,
     profile: ProfileRepository,
-    navigation: HomeNavigation,
+    private val navigation: HomeNavigation,
     credentials: CredentialsRepository,
     strategy: SchedulingStrategy
 ) : ViewModel<MutableList<Listing>>(State.idle(mutableListOf())) {
@@ -45,4 +46,6 @@ internal class HomeViewModel @Inject constructor(
   }
 
   override fun onCleared() = disposables.clear()
+
+  fun onActionClicked(view: View) = navigation.showAddListingDialog()
 }
