@@ -29,8 +29,8 @@ android {
 
     release {
       crunchPngs true
-      minifyEnabled true
-      multiDexEnabled false
+      //minifyEnabled true
+      //multiDexEnabled false
 
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard.pro'
     }
