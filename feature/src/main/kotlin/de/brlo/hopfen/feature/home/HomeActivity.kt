@@ -18,6 +18,7 @@ import de.brlo.hopfen.feature.extensions.getViewModel
 import de.brlo.hopfen.feature.home.HomeActivity.Companion.IntentOptions
 import de.brlo.hopfen.feature.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_home.collapsing
+import kotlinx.android.synthetic.main.activity_home.recycler
 import kotlinx.android.synthetic.main.activity_home.toolbar
 import javax.inject.Inject
 
@@ -26,6 +27,7 @@ class HomeActivity : DaggerAppCompatActivity() {
   private lateinit var binding: ActivityHomeBinding
 
   @Inject internal lateinit var factory: ViewModelProvider.Factory
+  @Inject internal lateinit var adapter: ListingsAdapter
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -37,6 +39,8 @@ class HomeActivity : DaggerAppCompatActivity() {
 
     setSupportActionBar(toolbar)
     setCollapsingToolbarFont()
+
+    recycler.adapter = adapter
   }
 
   private fun setCollapsingToolbarFont() {
