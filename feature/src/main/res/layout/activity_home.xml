@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+    <variable
+        name="model"
+        type="de.brlo.hopfen.feature.home.HomeViewModel"/>
+
+  </data>
+
+  <android.support.design.widget.CoordinatorLayout
+      android:id="@+id/coordinator"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <LinearLayout
+        style="@style/Theme.hopfen.Layout.Vertical"
+        android:layout_height="match_parent">
+
+      <FrameLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/default_margin"
+          android:fitsSystemWindows="true"
+          tools:ignore="MergeRootFrame">
+
+        <LinearLayout
+            style="@style/Theme.hopfen.Layout.Vertical"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/default_padding">
+
+          <TextView
+              style="@style/Theme.hopfen.TextAppearance.Headline"
+              android:id="@+id/heading"
+              android:layout_margin="@null"
+              android:text="@string/application"/>
+
+          <TextView
+              style="@style/Theme.hopfen.TextAppearance.Standard"
+              android:gravity="center_horizontal"
+              android:text="@string/attribution"/>
+
+        </LinearLayout>
+
+        <ImageButton
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:id="@+id/actionSettings"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/label_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_settings"
+            android:layout_gravity="end"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+      </FrameLayout>
+
+
+      <LinearLayout
+          style="@style/Theme.hopfen.Layout.Vertical"
+          android:layout_height="match_parent"
+          android:baselineAligned="false"
+          android:clipChildren="false">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipChildren="false"
+            tools:ignore="InefficientWeight,Suspicious0dp">
+
+          <LinearLayout
+              style="@style/Theme.hopfen.Layout.Vertical.Margin"
+              android:id="@+id/empty"
+              android:layout_gravity="center_vertical"
+              android:visibility="gone"
+              tools:visibility="visible">
+
+            <ImageView
+                android:contentDescription="@null"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/default_margin"
+                android:src="@drawable/home_illustration"/>
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Large"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/label_home_no_results_title"/>
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/label_home_no_results_description"/>
+
+          </LinearLayout>
+
+          <de.brlo.hopfen.feature.ui.FloatingCardStackLayout
+              android:id="@+id/stack"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              app:elevation="2dp"/>
+
+        </FrameLayout>
+
+        <LinearLayout
+            style="@style/Theme.hopfen.Layout.Horizontal"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:layout_gravity="bottom">
+
+          <View
+              android:layout_width="@dimen/action_size"
+              android:layout_height="@dimen/action_size"
+              android:layout_margin="@dimen/default_margin"
+              android:padding="@dimen/action_padding"
+              android:visibility="invisible"/>
+
+          <ImageButton
+              android:id="@+id/pass"
+              android:contentDescription="@string/action_pass"
+              android:background="@drawable/round_button"
+              android:layout_width="@dimen/action_size_large"
+              android:layout_height="@dimen/action_size_large"
+              android:layout_margin="@dimen/default_margin"
+              android:padding="@dimen/action_padding"
+              android:src="@drawable/ic_pass"/>
+
+          <ImageButton
+              android:id="@+id/like"
+              android:contentDescription="@string/action_like"
+              android:background="@drawable/round_button"
+              android:layout_width="@dimen/action_size_large"
+              android:layout_height="@dimen/action_size_large"
+              android:layout_margin="@dimen/default_margin"
+              android:padding="@dimen/action_padding"
+              android:src="@drawable/ic_like"/>
+
+          <android.support.v7.widget.SwitchCompat
+              android:id="@+id/toggle"
+              android:background="@drawable/toggle_background"
+              android:layout_width="@dimen/action_size"
+              android:layout_height="@dimen/action_size"
+              android:layout_margin="@dimen/default_margin"
+              android:checked="@{model.rent}"
+              android:padding="@dimen/action_padding"
+              android:thumb="@null"/>
+
+        </LinearLayout>
+      </LinearLayout>
+    </LinearLayout>
+  </android.support.design.widget.CoordinatorLayout>
+</layout>

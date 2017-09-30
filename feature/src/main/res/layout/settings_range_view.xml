@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Theme.hopfen.Layout.Vertical.Margin"
+    android:orientation="vertical">
+
+  <TextView
+      android:id="@+id/label"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingStart="@dimen/default_padding"
+      android:paddingEnd="@dimen/default_padding"
+      android:textColor="@color/light_blue"/>
+
+  <SeekBar
+      android:id="@+id/seek"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingTop="@dimen/default_padding"
+      android:paddingBottom="@dimen/default_padding"/>
+
+  <TextView
+      android:id="@+id/amount"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="end"
+      android:paddingStart="@dimen/default_padding"
+      android:paddingEnd="@dimen/default_padding"
+      tools:text="200.000 €"/>
+
+</LinearLayout>

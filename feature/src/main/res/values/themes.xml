@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!-- Application Themes -->
+  <style name="Theme.hopfen" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+
+    <item name="colorControlNormal">@color/light_grey</item>
+    <item name="colorControlActivated">@color/colorAccent</item>
+    <item name="colorControlHighlight">@color/dark_white</item>
+
+    <item name="android:colorBackground">@android:color/white</item>
+    <item name="android:textColorPrimary">@color/dark_grey</item>
+    <item name="android:textColorHint">@color/light_grey</item>
+    <item name="android:textColorLink">@color/light_blue</item>
+
+    <item name="android:windowBackground">@color/dark_white</item>
+  </style>
+
+  <!-- Container Themes -->
+  <style name="Theme.hopfen.Layout">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+
+    <item name="android:fitsSystemWindows">true</item>
+  </style>
+
+  <style name="Theme.hopfen.Layout.Horizontal" parent="Theme.hopfen.Layout">
+    <item name="android:gravity">center_horizontal</item>
+    <item name="android:orientation">horizontal</item>
+  </style>
+
+  <style name="Theme.hopfen.Layout.Vertical" parent="Theme.hopfen.Layout">
+    <item name="android:gravity">center_vertical</item>
+    <item name="android:orientation">vertical</item>
+  </style>
+
+  <style name="Theme.hopfen.Layout.Vertical.Margin" parent="Theme.hopfen.Layout.Vertical">
+    <item name="android:layout_marginTop">@dimen/default_margin</item>
+  </style>
+
+  <style name="Theme.hopfen.Layout.Vertical.Padding" parent="Theme.hopfen.Layout.Vertical">
+    <item name="android:padding">@dimen/default_padding</item>
+  </style>
+
+  <!-- TextAppearance Themes -->
+  <style name="Theme.hopfen.TextAppearance"/>
+
+  <style name="Theme.hopfen.TextAppearance.Standard" parent="TextAppearance.AppCompat.Body1">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+
+    <item name="android:textColor">@color/secondary_text</item>
+    <item name="android:textSize">@dimen/secondary_text</item>
+  </style>
+
+  <style name="Theme.hopfen.TextAppearance.Bold" parent="Theme.hopfen.TextAppearance.Standard">
+    <item name="android:textStyle">bold</item>
+  </style>
+
+  <style name="Base.Theme.hopfen.TextAppearance.Headline" parent="TextAppearance.AppCompat.Headline">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_margin">@dimen/default_margin</item>
+    <item name="android:gravity">center_horizontal</item>
+
+    <item name="android:textColor">@color/primary_text</item>
+    <item name="android:textSize">@dimen/primary_text</item>
+  </style>
+
+  <style name="Theme.hopfen.TextAppearance.Headline" parent="Base.Theme.hopfen.TextAppearance.Headline"/>
+
+  <style name="Theme.hopfen.TextAppearance.Quote" parent="Theme.hopfen.TextAppearance.Standard"/>
+
+  <!-- Dialog Themes -->
+  <style name="Theme.Dialog" parent="Theme.AppCompat.Light.Dialog">
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:background">@android:color/white</item>
+  </style>
+
+  <style name="Theme.Dialog.Fullscreen" parent="Theme.Dialog">
+    <item name="android:windowBackground">@null</item>
+    <item name="android:windowIsFloating">false</item>
+    <item name="android:windowTranslucentStatus">true</item>
+  </style>
+
+</resources>

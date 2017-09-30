@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+  <entry>
+    <key>listings_stacked</key>
+    <value>false</value>
+  </entry>
+
+  <entry>
+    <key>settings_enabled</key>
+    <value>true</value>
+  </entry>
+
+  <entry>
+    <key>gallery_enabled</key>
+    <value>true</value>
+  </entry>
+</defaultsMap>

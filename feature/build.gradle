@@ -1,0 +1,123 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+buildscript {
+  repositories {
+    jcenter()
+    google()
+  }
+
+  dependencies {
+    classpath plugin.android.tools
+    classpath plugin.google.services
+    classpath plugin.kotlin
+  }
+}
+
+android {
+  compileSdkVersion configuration.compileSdkVersion
+  buildToolsVersion configuration.buildToolsVersion
+
+  buildTypes {
+    debug {
+      applicationIdSuffix '.debug'
+
+      minifyEnabled false
+      multiDexEnabled true
+    }
+
+    release {
+      crunchPngs true
+      minifyEnabled true
+      multiDexEnabled false
+
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard.pro'
+    }
+  }
+
+  dataBinding {
+    enabled = true
+  }
+
+  defaultConfig {
+    applicationId 'de.brlo.hopfen'
+
+    minSdkVersion configuration.minSdkVersion
+    targetSdkVersion configuration.targetSdkVersion
+
+    versionCode configuration.versionCode
+    versionName configuration.versionName
+  }
+
+  compileOptions {
+    sourceCompatibility configuration.sourceCompatibility
+    targetCompatibility configuration.targetCompatibility
+  }
+
+  lintOptions {
+    disable 'UnusedResources' // https://youtrack.jetbrains.com/issue/KT-7729
+  }
+
+  sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+  }
+  
+  packagingOptions {
+    exclude 'META-INF/rxjava.properties'
+  }
+}
+
+androidExtensions {
+  experimental = true
+}
+
+def getRuntimeProperty(name) {
+  return findProperty(name) ?: String.format("\"%s\"", System.getenv(name))
+}
+
+dependencies {
+  implementation libraries.android.multidex
+  implementation libraries.kotlin
+
+  implementation libraries.android.support.compat
+  implementation libraries.android.support.cards
+  implementation libraries.android.support.design
+  implementation libraries.android.support.recycler
+
+  implementation libraries.android.arch.lifecycle.extensions
+  kapt libraries.android.arch.lifecycle.compiler
+  kapt libraries.android.databinding.compiler
+
+  implementation libraries.gson
+  implementation libraries.retrofit.core
+  implementation libraries.retrofit.adapter
+  implementation libraries.retrofit.converter
+  implementation libraries.okhttp.core
+  implementation libraries.okhttp.logging
+
+  implementation libraries.google.play.location
+  implementation libraries.google.play.places
+
+  implementation libraries.rx.java
+  implementation libraries.rx.android
+  implementation libraries.rx.databinding
+
+  implementation libraries.dagger.core
+  implementation libraries.dagger.android.support
+  kapt libraries.dagger.compiler
+  kapt libraries.dagger.android.processor
+
+  implementation libraries.firebase.analytics
+  implementation libraries.firebase.auth
+  implementation libraries.firebase.config
+  implementation libraries.firebase.core
+  implementation libraries.firebase.crash
+  implementation libraries.firebase.database
+
+  implementation libraries.square.picasso
+}
+
+apply plugin: 'com.google.gms.google-services'

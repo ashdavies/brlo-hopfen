@@ -1,0 +1,143 @@
+ext.configuration = [
+    compileSdkVersion  : 26,
+    buildToolsVersion  : '26.0.1',
+
+    minSdkVersion      : 19,
+    targetSdkVersion   : 26,
+
+    sourceCompatibility: JavaVersion.VERSION_1_7,
+    targetCompatibility: JavaVersion.VERSION_1_7
+]
+
+ext.versions = [
+    android  : [
+        arch    : '1.0.0-alpha9',
+        multidex: '1.0.1',
+        support : '26.1.0',
+        tools   : '3.0.0-beta6'
+    ],
+
+    ashdavies: [
+
+        slidingTabLayout: '1.0.0'
+    ],
+
+    dagger   : '2.11',
+    grgit    : '1.7.2',
+    gson     : '2.8.0',
+
+    google   : [
+        play    : [
+            services: '11.0.0'
+        ],
+        services: '3.1.0'
+    ],
+
+    kotlin   : '1.1.50',
+    okHttp   : '3.5.0',
+    retrofit : '2.2.0',
+
+    rx       : [
+        android    : '2.0.1',
+        databinding: '1.1.1',
+        java       : '2.1.1'
+    ],
+
+    square   : [
+        picasso: '2.5.2'
+    ],
+
+    jUnit    : '4.12',
+    truth    : '0.30',
+    mockito  : '1.10.19'
+]
+
+ext.plugin = [
+    android: [
+        tools: "com.android.tools.build:gradle:$versions.android.tools"
+    ],
+
+    google : [
+        services: "com.google.gms:google-services:$versions.google.services"
+    ],
+    grgit  : "org.ajoberstar:grgit:$versions.grgit",
+    kotlin : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+]
+
+ext.libraries = [
+    android : [
+        arch       : [
+            lifecycle: [
+                compiler  : "android.arch.lifecycle:compiler:1.0.0-alpha9",
+                extensions: "android.arch.lifecycle:extensions:1.0.0-alpha9"
+            ]
+        ],
+
+        databinding: [
+            compiler: "com.android.databinding:compiler:$versions.android.tools"
+        ],
+
+        multidex   : "com.android.support:multidex:$versions.android.multidex",
+
+        support    : [
+            compat  : "com.android.support:appcompat-v7:$versions.android.support",
+            cards   : "com.android.support:cardview-v7:$versions.android.support",
+            design  : "com.android.support:design:$versions.android.support",
+            recycler: "com.android.support:recyclerview-v7:$versions.android.support"
+        ],
+    ],
+
+    dagger  : [
+        core    : "com.google.dagger:dagger:$versions.dagger",
+        compiler: "com.google.dagger:dagger-compiler:$versions.dagger",
+
+        android : [
+            support  : "com.google.dagger:dagger-android-support:$versions.dagger",
+            processor: "com.google.dagger:dagger-android-processor:$versions.dagger"
+        ]
+    ],
+
+    firebase: [
+        analytics: "com.google.firebase:firebase-analytics:$versions.google.play.services",
+        auth     : "com.google.firebase:firebase-auth:$versions.google.play.services",
+        config   : "com.google.firebase:firebase-config:$versions.google.play.services",
+        core     : "com.google.firebase:firebase-core:$versions.google.play.services",
+        crash    : "com.google.firebase:firebase-crash:$versions.google.play.services",
+        database : "com.google.firebase:firebase-database:$versions.google.play.services",
+    ],
+
+    google  : [
+        play: [
+            location: "com.google.android.gms:play-services-location:$versions.google.play.services",
+            places  : "com.google.android.gms:play-services-places:$versions.google.play.services"
+        ]
+    ],
+
+    gson    : "com.google.code.gson:gson:$versions.gson",
+    kotlin  : "org.jetbrains.kotlin:kotlin-stdlib-jre8:$versions.kotlin",
+
+    okhttp  : [
+        core   : "com.squareup.okhttp3:okhttp:$versions.okHttp",
+        logging: "com.squareup.okhttp3:logging-interceptor:$versions.okHttp"
+    ],
+
+    retrofit: [
+        core     : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+        adapter  : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
+        converter: "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+    ],
+
+    rx      : [
+        android    : "io.reactivex.rxjava2:rxandroid:$versions.rx.android",
+        databinding: "com.stepango.rxdatabindings:rxdatabindings:$versions.rx.databinding",
+        java       : "io.reactivex.rxjava2:rxjava:$versions.rx.java",
+    ],
+
+    square  : [
+        picasso: "com.squareup.picasso:picasso:$versions.square.picasso",
+    ],
+
+    jUnit   : "junit:junit:$versions.jUnit",
+    truth   : "com.google.truth:truth:$versions.truth",
+    mockito : "org.mockito:mockito-core:$versions.mockito"
+]

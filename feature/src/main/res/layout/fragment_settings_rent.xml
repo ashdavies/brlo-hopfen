@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+    <variable
+        name="model"
+        type="de.brlo.hopfen.feature.settings.RentSettingsViewModel"/>
+
+  </data>
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <LinearLayout
+        style="@style/Theme.hopfen.Layout.Vertical"
+        android:padding="@dimen/default_padding">
+
+      <de.brlo.hopfen.feature.settings.SettingsRangeView
+          android:id="@+id/maxRentCold"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:label="@string/label_settings_price"
+          app:progress="@={model.maxRentCold}"
+          app:maximum="5000"/>
+
+      <de.brlo.hopfen.feature.settings.SettingsRangeView
+          android:id="@+id/minLivingSpace"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:label="@string/label_settings_space"
+          app:progress="@={model.minLivingSpace}"
+          app:maximum="200"/>
+
+      <de.brlo.hopfen.feature.settings.SettingsRangeView
+          android:id="@+id/minRooms"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:label="@string/label_settings_rooms"
+          app:progress="@={model.minRooms}"
+          app:maximum="10"/>
+
+      <LinearLayout
+          style="@style/Theme.hopfen.Layout.Vertical.Margin"
+          android:id="@+id/furtherCriteria"
+          android:padding="@dimen/default_padding">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_settings_further_criteria"
+            android:textColor="@color/light_blue"/>
+
+        <Switch
+            style="@style/Theme.hopfen.Switch"
+            android:id="@+id/hasBalcony"
+            android:text="@string/hint_settings_additional_balcony"
+            android:checked="@={model.hasBalcony}"/>
+
+        <Switch
+            style="@style/Theme.hopfen.Switch"
+            android:id="@+id/hasBasement"
+            android:text="@string/hint_settings_additional_basement"
+            android:checked="@={model.hasBasement}"/>
+
+        <Switch
+            style="@style/Theme.hopfen.Switch"
+            android:id="@+id/hasLift"
+            android:text="@string/hint_settings_additional_lift"
+            android:checked="@={model.hasLift}"/>
+
+      </LinearLayout>
+    </LinearLayout>
+  </ScrollView>
+</layout>

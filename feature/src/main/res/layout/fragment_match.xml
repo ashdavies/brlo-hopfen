@@ -1,0 +1,137 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white_cc"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:padding="@dimen/default_padding">
+
+  <LinearLayout
+      style="@style/Theme.hopfen.Layout.Vertical"
+      android:background="@drawable/rounded_background"
+      android:id="@+id/frame"
+      android:layout_marginTop="84dp"
+      android:layout_marginStart="@dimen/default_margin"
+      android:layout_marginEnd="@dimen/default_margin"
+      android:layout_marginBottom="@dimen/default_margin"
+      android:clipToPadding="false"
+      android:padding="@dimen/default_padding">
+
+    <de.brlo.hopfen.feature.ui.DynamicHeightImageView
+        android:id="@+id/image"
+        android:contentDescription="@null"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:heightRatio="0.8"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:background="@android:color/white"
+        android:layout_gravity="bottom">
+
+      <TextView
+          style="@style/Theme.hopfen.TextAppearance.Headline"
+          android:id="@+id/address"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="@null"
+          android:paddingStart="@dimen/default_half_padding"
+          android:gravity="start"
+          android:textSize="16sp"
+          android:textStyle="bold"
+          android:ellipsize="end"
+          android:singleLine="true"/>
+
+      <TextView
+          style="@style/Theme.hopfen.TextAppearance.Standard"
+          android:id="@+id/attributes"
+          android:layout_width="match_parent"
+          android:drawableStart="@drawable/ic_location"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/default_half_margin"
+          android:layout_gravity="center_vertical"
+          android:ellipsize="end"
+          android:textSize="14sp"
+          android:singleLine="true"/>
+
+    </LinearLayout>
+
+    <Button
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:background="@color/colorAccent"
+        android:id="@+id/actionView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:padding="@dimen/default_padding"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/action_view"/>
+
+    <Button
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:background="@android:color/white"
+        android:id="@+id/actionContinue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:padding="@dimen/default_padding"
+        android:textColor="@color/dark_grey"
+        android:text="@string/action_continue"/>
+
+  </LinearLayout>
+
+  <ImageView
+      android:contentDescription="@null"
+      android:layout_width="match_parent"
+      android:layout_height="72dp"
+      android:clickable="false"
+      android:src="@drawable/fan_fare"/>
+
+  <LinearLayout
+      style="@style/Theme.hopfen.Layout.Vertical"
+      android:id="@+id/heading"
+      android:background="@drawable/round_background"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="72dp"
+      android:layout_marginStart="64dp"
+      android:layout_marginEnd="64dp"
+      android:padding="@dimen/default_padding">
+
+    <TextView
+        style="@style/Theme.hopfen.TextAppearance.Headline"
+        android:background="@drawable/rounded_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:text="@string/match_title"
+        android:textStyle="bold"/>
+
+    <TextView
+        style="@style/Theme.hopfen.TextAppearance.Standard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/match_description"/>
+
+  </LinearLayout>
+
+  <ImageView
+      android:id="@+id/like"
+      android:contentDescription="@null"
+      android:background="@drawable/round_button"
+      android:layout_width="64dp"
+      android:layout_height="64dp"
+      android:layout_marginTop="24dp"
+      android:layout_gravity="center_horizontal"
+      android:padding="@dimen/default_padding"
+      android:src="@drawable/ic_like"/>
+
+</FrameLayout>
