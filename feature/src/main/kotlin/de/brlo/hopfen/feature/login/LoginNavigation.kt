@@ -35,11 +35,11 @@ internal class LoginNavigation @Inject constructor(private val navigator: Naviga
     }
   }
 
-  fun navigateToHomeScreen() {
+  private fun navigateToHomeScreen() {
     navigator.navigate { HomeActivity.start(it) {} }
   }
 
-  fun showFailureDialog() {
+  private fun showFailureDialog() {
     navigator.navigate {
       AlertDialog.Builder(it)
           .setTitle(R.string.error_dialog_title)

@@ -6,7 +6,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.FontRes
 import android.support.v4.content.res.ResourcesCompat
+import android.support.v7.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
+import com.stepango.rxdatabindings.observe
 import dagger.android.support.DaggerAppCompatActivity
 import de.brlo.hopfen.feature.BuildConfig
 import de.brlo.hopfen.feature.R
@@ -41,6 +43,8 @@ class HomeActivity : DaggerAppCompatActivity() {
     setCollapsingToolbarFont()
 
     recycler.adapter = adapter
+    recycler.layoutManager = LinearLayoutManager(this)
+    binding.model?.state?.observe()?.subscribe { adapter.items = it.data }
   }
 
   private fun setCollapsingToolbarFont() {

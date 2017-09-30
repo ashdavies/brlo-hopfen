@@ -3,12 +3,15 @@ package de.brlo.hopfen.feature.login
 import android.arch.lifecycle.ViewModelProvider
 import android.content.Intent
 import android.os.Bundle
+import com.google.firebase.auth.FirebaseAuth
 import dagger.android.support.DaggerAppCompatActivity
+import de.brlo.hopfen.feature.BuildConfig
 import de.brlo.hopfen.feature.R
 import de.brlo.hopfen.feature.activity.ActivityCompanion
 import de.brlo.hopfen.feature.databinding.ActivityLoginBinding
 import de.brlo.hopfen.feature.extensions.getDataBinding
 import de.brlo.hopfen.feature.extensions.getViewModel
+import de.brlo.hopfen.feature.home.HomeActivity
 import de.brlo.hopfen.feature.login.LoginActivity.Companion.IntentOptions
 import javax.inject.Inject
 
@@ -20,6 +23,9 @@ class LoginActivity : DaggerAppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+
+    if (BuildConfig.DEBUG) FirebaseAuth.getInstance().signInAnonymously()
+        .addOnSuccessListener { HomeActivity.start(this) {} }
 
     binding = getDataBinding(R.layout.activity_login)
     binding.model = getViewModel(factory)
