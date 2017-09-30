@@ -14,4 +14,13 @@ internal class HomeNavigation @Inject constructor(private val navigator: Navigat
           .show()
     }
   }
+
+  fun showProfileError() {
+    navigator.navigate {
+      AlertDialog.Builder(it)
+          .setTitle(R.string.error_dialog_title)
+          .setMessage(R.string.error_profile_failed)
+          .show()
+    }
+  }
 }

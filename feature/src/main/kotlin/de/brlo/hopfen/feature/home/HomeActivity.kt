@@ -1,13 +1,11 @@
 package de.brlo.hopfen.feature.home
 
 import android.arch.lifecycle.ViewModelProvider
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.annotation.FontRes
-import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
+import com.squareup.picasso.Picasso
 import com.stepango.rxdatabindings.observe
 import dagger.android.support.DaggerAppCompatActivity
 import de.brlo.hopfen.feature.BuildConfig
@@ -21,7 +19,7 @@ import de.brlo.hopfen.feature.home.HomeActivity.Companion.IntentOptions
 import de.brlo.hopfen.feature.login.LoginActivity
 import de.brlo.hopfen.feature.network.SchedulingStrategy
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.internal.operators.observable.ObservableReplay.observeOn
+import kotlinx.android.synthetic.main.activity_home.backdrop
 import kotlinx.android.synthetic.main.activity_home.collapsing
 import kotlinx.android.synthetic.main.activity_home.recycler
 import kotlinx.android.synthetic.main.activity_home.toolbar
@@ -48,14 +46,29 @@ class HomeActivity : DaggerAppCompatActivity() {
 
     recycler.adapter = adapter
     recycler.layoutManager = LinearLayoutManager(this)
-    binding.model?.state?.observe()
-        ?.compose(strategy.observable())
-        ?.subscribe { adapter.items = it.data }
+
+    binding.model?.state?.observe(AndroidSchedulers.mainThread())?.subscribe { adapter.items = it.data }
+    binding.model?.header?.observe(AndroidSchedulers.mainThread())?.subscribe {
+      setHeaderText(it.data.name)
+      setHeaderImage(it.data.image)
+    }
   }
 
   private fun setCollapsingToolbarFont() {
     collapsing.setCollapsedTitleTypeface(getFont(R.font.product_sans_regular))
     collapsing.setExpandedTitleTypeface(getFont(R.font.product_sans_regular))
+  }
+
+  private fun setHeaderText(text: String) {
+    collapsing.title = text
+  }
+
+  private fun setHeaderImage(url: String) {
+    Picasso.with(this)
+        .load(url)
+        .fit()
+        .centerCrop()
+        .into(backdrop)
   }
 
   override fun onBackPressed() {
