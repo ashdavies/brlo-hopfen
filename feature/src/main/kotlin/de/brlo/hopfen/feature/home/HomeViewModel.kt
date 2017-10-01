@@ -13,7 +13,7 @@ import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
 internal class HomeViewModel @Inject constructor(
-        listings: ListingsRepository,
+        private val listings: ListingsRepository,
         profiles: ProfileRepository,
         hops: HopsRepository,
         private val navigation: HomeNavigation,
@@ -61,5 +61,8 @@ internal class HomeViewModel @Inject constructor(
 
   override fun onCleared() = disposables.clear()
 
-  fun onActionClicked(view: View) = navigation.showAddListingDialog(hopsList.get().data)
+  fun onActionClicked(view: View) = navigation.showAddListingDialog(
+      hopsList.get().data,
+      header.get().data,
+      { listing: Listing -> listings.put(listing, { _ -> "" }).subscribe() })
 }

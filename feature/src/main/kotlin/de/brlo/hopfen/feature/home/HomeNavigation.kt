@@ -2,9 +2,13 @@ package de.brlo.hopfen.feature.home
 
 import android.app.AlertDialog
 import android.widget.ArrayAdapter
+import android.widget.EditText
 import android.widget.Spinner
 import de.brlo.hopfen.feature.R
 import de.brlo.hopfen.feature.data.Hop
+import de.brlo.hopfen.feature.data.Listing
+import de.brlo.hopfen.feature.data.Profile
+import java.util.*
 import javax.inject.Inject
 
 internal class HomeNavigation @Inject constructor(private val navigator: Navigator) {
@@ -36,17 +40,28 @@ internal class HomeNavigation @Inject constructor(private val navigator: Navigat
     }
   }
 
-  fun showAddListingDialog(hops: List<Hop>) {
+  fun showAddListingDialog(hops: List<Hop>, profile: Profile, callback: (Listing) -> Unit) {
     navigator.navigate {
-      val view = it.layoutInflater.inflate(R.layout.dialog_edit_listing, null)
+      val editView = it.layoutInflater.inflate(R.layout.dialog_edit_listing, null)
 
-      val spinner = view.findViewById<Spinner>(R.id.hopsStyleSpinner)
-      spinner.adapter = ArrayAdapter<Hop>(spinner.context, android.R.layout.simple_spinner_item, hops)
+      val hopSpinner = editView.findViewById<Spinner>(R.id.hopsStyleSpinner)
+      hopSpinner.adapter = ArrayAdapter<Hop>(hopSpinner.context, android.R.layout.simple_spinner_item, hops)
+
+      val locationSpinner = editView.findViewById<Spinner>(R.id.locationSpinner)
+      locationSpinner.adapter = ArrayAdapter<Profile.Location>(locationSpinner.context, android.R.layout.simple_spinner_item, profile.locations)
 
       AlertDialog.Builder(it)
-          .setView(view)
+          .setView(editView)
           .setPositiveButton(R.string.add_listing, { _, _ ->
+            val quantity = editView.findViewById<EditText>(R.id.quantityEditText).text.toString().toDouble()
+            val quantityUnits = editView.findViewById<Spinner>(R.id.quantityUnitSpinner).selectedItem.toString()
+            val price = editView.findViewById<EditText>(R.id.priceEditText).text.toString().toDouble()
+            val hop = hopSpinner.selectedItem as Hop
+            val location = locationSpinner.selectedItem as Profile.Location
 
+            val listing = Listing(UUID.randomUUID().toString(), hop, profile, location, quantity, quantityUnits, price)
+
+            callback.invoke(listing)
           })
           .setNegativeButton(R.string.cancel, null)
           .setTitle(R.string.new_listing_dialog_title)
