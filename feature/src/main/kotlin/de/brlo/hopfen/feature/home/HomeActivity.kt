@@ -52,6 +52,9 @@ class HomeActivity : DaggerAppCompatActivity() {
       setHeaderText(it.data.name)
       setHeaderImage(it.data.image)
     }
+    binding.model?.hopsList?.observe(AndroidSchedulers.mainThread())?.subscribe {
+
+    }
   }
 
   private fun setCollapsingToolbarFont() {

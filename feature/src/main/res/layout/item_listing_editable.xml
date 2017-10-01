@@ -66,9 +66,9 @@
 
         <TextView
             android:id="@+id/priceTextView"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:textAppearance="@style/Theme.Hopfen.TextAppearance.Bold"
             android:text="@{String.valueOf(listing.price)}"
             app:layout_constraintBottom_toBottomOf="parent"
