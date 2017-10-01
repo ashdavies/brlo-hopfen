@@ -19,7 +19,7 @@ internal class HomeViewModel @Inject constructor(
 
   private val disposables = CompositeDisposable()
 
-  val header = ObservableField<State<Profile>>()
+  val header = ObservableField<State<Profile>>(State.idle(Profile.empty()))
 
   init {
     disposables += listings.getAll()
