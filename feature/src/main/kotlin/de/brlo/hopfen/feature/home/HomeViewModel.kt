@@ -38,7 +38,7 @@ internal class HomeViewModel @Inject constructor(
             }
         )
 
-    disposables += profiles.get("9b2f0ee7-9d76-4918-8cf9-d77317a88725")
+    disposables += profiles.get("fGo29hRp2BMhHFkkmziAP3fBGbf2")
         .subscribe(
             { header.set(State.idle(it)) },
             {

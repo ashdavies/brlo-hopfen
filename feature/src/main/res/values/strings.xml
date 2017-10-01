@@ -11,7 +11,7 @@
   <string name="error_profile_failed">Failed to load profile</string>
   <string name="error_hops_failed">Failed to fetch hops</string>
 
-  <string name="add_to_cart">Add To Cart</string>
+  <string name="purchase">Purchase</string>
 
   <string name="new_listing_dialog_title">New Listing</string>
   <string name="edit_listing_dialog_title">New Listing</string>

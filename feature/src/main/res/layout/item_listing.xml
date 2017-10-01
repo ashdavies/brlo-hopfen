@@ -98,7 +98,7 @@
           android:layout_marginBottom="8dp"
           android:layout_marginStart="8dp"
           android:layout_marginTop="16dp"
-          android:text="@string/add_to_cart"
+          android:text="@string/purchase"
           android:textAppearance="@style/Theme.Hopfen.TextAppearance.Button"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintStart_toStartOf="parent"
