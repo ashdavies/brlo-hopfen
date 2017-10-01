@@ -81,7 +81,6 @@
 
   <style name="Theme.Hopfen.TextAppearance.EditText" parent="Theme.Hopfen.TextAppearance.Standard">
     <item name="android:textColor">@color/primary_text</item>
-    <item name="android:textSize">@dimen/primary_text</item>
   </style>
 
   <!-- Dialog Themes -->

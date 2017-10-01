@@ -3,73 +3,121 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
+  <data>
 
-        <variable
-            name="listing"
-            type="de.brlo.hopfen.feature.data.Listing"/>
+    <variable
+        name="listing"
+        type="de.brlo.hopfen.feature.data.Listing"/>
 
-    </data>
+  </data>
 
-    <android.support.v7.widget.CardView
-        style="@style/Theme.Hopfen.Layout"
+  <android.support.v7.widget.CardView
+      style="@style/Theme.Hopfen.Layout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="16dp"
+      android:background="@color/cardview_light_background"
+      android:orientation="vertical"
+      app:cardCornerRadius="2dp"
+      app:cardElevation="2dp"
+      app:elevation="@dimen/cardview_default_elevation"
+      tools:layout_editor_absoluteX="0dp"
+      tools:layout_editor_absoluteY="25dp">
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@color/cardview_light_background"
-        android:orientation="vertical"
-        app:cardCornerRadius="2dp"
-        app:cardElevation="2dp"
-        app:elevation="@dimen/cardview_default_elevation"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="25dp">
+        android:layout_height="match_parent">
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+      <android.support.constraint.ConstraintLayout
+          style="@style/Theme.Hopfen.Layout"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:layout_marginEnd="16dp"
+          android:id="@+id/listingDetails"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          android:layout_marginStart="16dp"
+          app:layout_constraintTop_toTopOf="parent"
+          android:layout_marginTop="24dp">
 
-            <include
-                android:id="@+id/include"
-                layout="@layout/listing_details"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/quantityTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/Theme.Hopfen.TextAppearance.Bold"
+            android:text="@{listing.quantity + listing.quantityUnits}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/locationTextView"
+            tools:text="30kg"/>
 
-            <Button
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:id="@+id/editButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/edit"
-                android:textAppearance="@style/Theme.Hopfen.TextAppearance.Button"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/include" />
+        <TextView
+            android:id="@+id/hopStyleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Theme.Hopfen.TextAppearance.Headline"
+            android:text="@{listing.hop.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Alpha"/>
 
-            <Button
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:id="@+id/deleteButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/delete"
-                android:textAppearance="@style/Theme.Hopfen.TextAppearance.Button"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editButton"
-                app:layout_constraintTop_toBottomOf="@+id/include" />
-        </android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/priceTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textAppearance="@style/Theme.Hopfen.TextAppearance.Bold"
+            android:text="@{String.valueOf(listing.price)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/locationTextView"
+            tools:text="\u20AC45,00"/>
 
-    </android.support.v7.widget.CardView>
+        <TextView
+            android:id="@+id/locationTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textAppearance="@style/Theme.Hopfen.TextAppearance.Standard"
+            android:text="@{listing.location.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hopStyleTextView"
+            tools:text="BR\u0141O Brewing Berlin"/>
+      </android.support.constraint.ConstraintLayout>
+
+      <Button
+          style="@style/Widget.AppCompat.Button.Borderless"
+          android:id="@+id/editButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="8dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="16dp"
+          android:text="@string/edit"
+          android:textAppearance="@style/Theme.Hopfen.TextAppearance.Button"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/listingDetails"/>
+
+      <Button
+          style="@style/Widget.AppCompat.Button.Borderless"
+          android:id="@+id/deleteButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="8dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="16dp"
+          android:text="@string/delete"
+          android:textAppearance="@style/Theme.Hopfen.TextAppearance.Button"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toEndOf="@+id/editButton"
+          app:layout_constraintTop_toBottomOf="@+id/listingDetails" />
+    </android.support.constraint.ConstraintLayout>
+
+  </android.support.v7.widget.CardView>
 </layout>
 
