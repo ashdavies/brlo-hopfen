@@ -8,12 +8,12 @@ import io.reactivex.Observable
 import io.reactivex.Single
 import javax.inject.Inject
 
-internal class ProfileRepository @Inject constructor() : Repository<String, Profile> {
+internal class ProfileRepository @Inject constructor(private val deserialiser: GsonDeserialiser<Profile>) : Repository<String, Profile> {
 
   override fun get(key: String): Single<out Profile> {
     return getInstance(CHILD_PROFILE, key)
-            .onSingleValueEvent()
-            .map { it.getValue<Profile>(Profile::class.java)!! }
+        .onSingleValueEvent()
+        .map { deserialiser.deserialise(it, Profile::class.java) }
   }
 
   override fun getAll(): Observable<out Profile> = Observable.error(UnsupportedOperationException())

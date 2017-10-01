@@ -65,7 +65,7 @@ class HomeActivity : DaggerAppCompatActivity() {
 
   private fun setHeaderImage(url: String) {
     if (url.isEmpty()) return
-    
+
     Picasso.with(this)
         .load(url)
         .fit()
